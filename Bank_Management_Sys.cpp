@@ -1,11 +1,11 @@
 #include <iostream>
 #include <stdio.h>
-// #include <conio.h>
+
 using namespace std;
 
 class bank
 {
-    char name[100], father[100], addr[100], type[10];
+    char name[10], last[10], addr[100], type[10];
     float balance;
 
 public:
@@ -19,10 +19,10 @@ void bank::open_account()
 {
     cout << "\nEnter Your Full Name:" << endl;
     cin.ignore();
-    cin.getline(name, 100);
+    cin.getline(name, 10);
     cout << "\nEnter Your Father Name:" << endl;
     cin.ignore();
-    cin.getline(father, 100);
+    cin.getline(last, 10);
     cout << "\nEnter Your Address" << endl;
     cin.ignore();
     cin.getline(addr, 100);
@@ -58,74 +58,71 @@ void bank::withdrow_money()
 void bank::display_account()
 {
     cout << "\nYour Name:" << name << endl;
-    cout << "\nYour Father Name:" << father << endl;
+    cout << "\nYour Father Name:" << last << endl;
     cout << "\nYour Address:" << addr << endl;
     cout << "\nType Of Account:" << type << endl;
     cout << "\nCurrent/Total Balance:" << balance << endl;
 }
 
-
 int main()
 {
+
+   
     bank obj;
-    int ch;
+    int u;
     char option;
 
     cout << "\n<<-------------------------------------------------------------------->>" << endl;
-    cout << "\n<<-----------------------Welcome To You in Your Bank------------------->>" << endl;
+    cout << "\n<<----------------------Welcome to Al-Ahly Bank----------------------->>" << endl;
     cout << "\n<<-------------------------------------------------------------------->>" << endl;
 
     do
     {
-
+       cout<< "\n*** Choose the operation you need in our bank ***"<<endl;
         cout << "\n1.) Open Account:" << endl;
         cout << "\n2.) Deposit Money:" << endl;
         cout << "\n3.) Withdraw Money:" << endl;
         cout << "\n4.) Display Account:" << endl;
         cout << "\n5.) Exit-->:" << endl;
 
-        cin >> ch;
-        
-            switch (ch)
-            {
-            case 1:
-                cout << "\n1.) Open Account:" << endl;
-                obj.open_account();
-                break;
-            case 2:
-                cout << "\n2.) Deposit Money:" << endl;
-                obj.deposit_money();
-                break;
-            case 3:
-                cout << "n3.) Withdraw Money:" << endl;
-                obj.withdrow_money();
-                break;
-            case 4:
-                cout << "n4.) Display Account:" << endl;
-                obj.display_account();
-                break;
-            case 5:
-                if (ch == 5)
-                {
-                    exit(0);
-                }
+        cin >> u;
 
-            default:
-                cout << "\nPlease Try Again And Correct Opttion" << endl;
-                break;
+        switch (u)
+        {
+        case 1:
+            cout << "\n1.) Open Account:" << endl;
+            obj.open_account();
+            break;
+        case 2:
+            cout << "\n2.) Deposit Money:" << endl;
+            obj.deposit_money();
+            break;
+        case 3:
+            cout << "n3.) Withdraw Money:" << endl;
+            obj.withdrow_money();
+            break;
+        case 4:
+            cout << "n4.) Display Account:" << endl;
+            obj.display_account();
+            break;
+        case 5:
+            if (u == 5)
+            {
+                exit(0);
             }
 
-            cout << "\n Do you want to continue banking without exit? press (Y/N) !" << endl;
-            cin>>option;
-            // option = getch();
+        default:
+            cout << "\nPlease Try Again And Correct Opttion" << endl;
+            break;
+        }
 
-            if ((option == 'n' || option == 'N'))
-            {
-              exit(1);
-            }
-        } while (option == 'y' || option == 'Y');
+        cout << "\n Do you want to continue banking without exit? press (Y/N) !" << endl;
+        cin >> option;
 
-            // getch();
-        return 0;
-    }
-    
+        if ((option == 'n' || option == 'N'))
+        {
+            exit(1);
+        }
+    } while (option == 'y' || option == 'Y');
+    return 0;
+}
